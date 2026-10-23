@@ -28,14 +28,14 @@ A renderização condicional permite exibir elementos diferentes na tela com bas
 O Virtual DOM é uma cópia leve do DOM real mantida na memória pelo React. Quando o usuário clica no botão "Favoritar", o estado muda, gerando uma nova árvore de Virtual DOM. O React compara essa nova árvore com a anterior através de um algoritmo de diferenciação (diffing) e atualiza no DOM real apenas o elemento que mudou (neste caso, o status e o botão do card específico), garantindo alta performance.
 
 ```mermaid
-flowchart TD
-    subgraph Virtual DOM (In-Memory / Leve)
+graph TD
+    subgraph VDOM
         A1[Estado Atualiza] --> B1[Novo VDOM Gerado]
         B1 --> C1[Algoritmo de Diffing Compara Árvores]
         C1 --> D1[Isola Apenas o Elemento Alterado ex: &lt;span&gt;]
     end
 
-    subgraph DOM Real (Navegador / Pesado)
+    subgraph DOM
         A2[Modificação Direta solicitada] --> B2[Recálculo de Layout - Reflow]
         B2 --> C2[Repintura da Tela - Repaint]
         C2 --> D2[Atualização de toda a estrutura ou bloco pai]
